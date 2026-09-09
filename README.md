@@ -1,6 +1,6 @@
 # EPLAN Beginner Projects
 
-Four control circuits designed in EPLAN Electric P8. The first three are exported as single-page circuit diagrams (PDF); the fourth is a more advanced circuit exported as its full multi-page schematic (title page, table of contents, and circuit page).
+Five control circuits designed in EPLAN Electric P8. The first three are exported as single-page circuit diagrams (PDF); the fourth and fifth are more advanced circuits exported as their full multi-page schematics.
 
 ## 1. Lamp Latch (`LampLatch.pdf`)
 
@@ -44,6 +44,17 @@ A single-pushbutton lamp sequencer built from nine relays, with no PLC involved.
 - The 5th press energizes **K9**, which drives no lamp — it only opens K8's latch, clearing the board and resetting the cycle.
 
 A walking-ring counter — the same relay-only sequencing logic used in old telephone stepping switches and appliance program timers.
+
+## 5. Elevator (`Elevator.pdf`)
+
+A two-direction reversing-contactor hoist drive with PLC digital I/O, exported as its full multi-page schematic (title page, table of contents, single-line overview, power/control circuit, PLC inputs, PLC outputs).
+
+- **S1 (Up)** and **S2 (Down)** each energize their contactor, **K1** or **K2**, through the *other* contactor's normally-closed interlock contact, plus **F1**'s thermal-overload aux contact.
+- The interlock is electrical, not just logical: K1 and K2 physically cannot both be energized at once, so a reversal can never be forced by a stuck relay or a software fault.
+- **S3 (Stop)** breaks the shared control bus feeding both directions.
+- A second pole of S1/S2/S3 is wired into a dedicated PLC input page (**I0.0–I0.2**); two interposing relays, **K3**/**K4**, represent the PLC's digital outputs (**Q0.0/Q0.1**) that would drive the real contactors.
+
+The cross-interlocked reversing-starter pattern from Door Motor, scaled up with the PLC I/O layer a real elevator controller adds on top of (never instead of) the hard-wired safety interlock.
 
 ---
 
