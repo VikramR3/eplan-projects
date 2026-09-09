@@ -2,7 +2,7 @@
 
 Three beginner-level control circuits designed in EPLAN Electric P8, each exported as a single-page circuit diagram (PDF).
 
-## 1. Lamp Latch (`02_Beginner_LampLatch.pdf`)
+## 1. Lamp Latch (`LampLatch.pdf`)
 
 A start/stop push-button latch circuit for a single lamp.
 
@@ -13,7 +13,7 @@ A start/stop push-button latch circuit for a single lamp.
 
 Standard "start/stop/seal-in" latching logic — the building block behind almost every relay control circuit.
 
-## 2. Door Motor (`03_Beginner_DoorMotor.pdf`)
+## 2. Door Motor (`DoorMotor.pdf`)
 
 An interlocked forward/reverse circuit for a sliding door motor, using two contactors, **K1** (open) and **K2** (close).
 
@@ -23,7 +23,7 @@ An interlocked forward/reverse circuit for a sliding door motor, using two conta
 
 This is the classic cross-interlocked reversing-starter topology used for any bidirectional motor drive.
 
-## 3. Fire Alarm (`04_Beginner_FireAlarm.pdf`)
+## 3. Fire Alarm (`FireAlarm.pdf`)
 
 A latching alarm circuit triggered by a smoke switch.
 
