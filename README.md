@@ -1,6 +1,6 @@
 # EPLAN Beginner Projects
 
-Three beginner-level control circuits designed in EPLAN Electric P8, each exported as a single-page circuit diagram (PDF).
+Four control circuits designed in EPLAN Electric P8. The first three are exported as single-page circuit diagrams (PDF); the fourth is a more advanced circuit exported as its full multi-page schematic (title page, table of contents, and circuit page).
 
 ## 1. Lamp Latch (`LampLatch.pdf`)
 
@@ -33,6 +33,17 @@ A latching alarm circuit triggered by a smoke switch.
 - **RESET** breaks the seal-in path to silence the alarm and clear the latch.
 
 Same seal-in latching pattern as the Lamp Latch, applied to an alarm/annunciator use case.
+
+## 4. Lamp Sequence (`LampSequence.pdf`)
+
+A single-pushbutton lamp sequencer built entirely from relays — a walking-ring counter with no PLC and no electronics. Noticeably more advanced than the three circuits above.
+
+- **S1** pulses one of five "selector" relays (**K1, K3, K5, K7, K9**) on each press — but only the selector for the *next* state can actually pick up, because each one's coil runs through the normally-closed contacts of every other currently-active relay.
+- Each selector hands off to a "latching" relay (**K2, K4, K6, K8**), which seals itself in through its own auxiliary contact and drives one lamp (**H1–H4**).
+- Advancing to a new latching relay automatically breaks the *previous* one's seal-in, through a shared interlock contact — nothing has to actively switch the old lamp off.
+- The 5th press energizes **K9**, which drives no lamp of its own — its only job is to open K8's latch, clearing the board and resetting the cycle.
+
+This is the same principle behind pre-electronic telephone stepping switches, appliance program timers, and chaser lighting — and the direct hardware ancestor of every PLC step-sequencer instruction in use today.
 
 ---
 
